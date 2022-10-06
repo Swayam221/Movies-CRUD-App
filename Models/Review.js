@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const { ObjectId } = mongoose.Schema.Types;
 
 const ReviewSchema = mongoose.Schema(
   {
@@ -8,6 +9,9 @@ const ReviewSchema = mongoose.Schema(
     },
     rating: {
       type: Number,
+    },
+    movieId: {
+      type: ObjectId,
     },
   },
   { timestamps: true }

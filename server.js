@@ -31,6 +31,7 @@ mongoose.connection.on("error", () => {
 app.use("/add", require("./Routes/addMovies"));
 app.use("/delete", require("./Routes/deleteMovie"));
 app.use("/get", require("./Routes/getMovies"));
+app.use("/addReview", require("./Routes/addReview"));
 
 if (process.env.NODE_ENV == "production") {
   app.use(express.static("client/build"));

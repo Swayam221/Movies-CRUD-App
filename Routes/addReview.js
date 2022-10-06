@@ -6,30 +6,35 @@ const Review = require("../Models/Review");
 
 // POST REQUEST
 
-// router.post("/", async (req, res) => {
+router.put("/", async (req, res) => {
+  // LOGIC:
+  // create a new review object and store it in database
+  // now add this review to corresponding movie's review array
+  // when fetching the movie details, then expand the reviews
+  // pawrrrryyyy!!!!
 
-// LOGIC:
-// create a new review object and store it in database
-// now add this review to corresponding movie's review array
-// when fetching the movie details, then expand the reviews
-// pawrrrryyyy!!!!
+  try {
+    const reviewToAdd = new Review({
+      content: req.body.content,
+      rating: req.body.rating,
+      movieId: req.body.movieId,
+    });
 
-//   try {
-//     const reviewToAdd = new Review({
-//       movieName: req.body.movieName,
-//       category: req.body.category,
-//       information: req.body.information,
-//       poster: req.body.poster,
-//     });
+    const savedReview = await reviewToAdd.save();
+    const updatedMovie = await Movie.findOneAndUpdate(
+      { _id: req.body.movieId },
+      {
+        $push: { reviews: savedReview._id },
+      },
+      { new: true }
+    ).populate("reviews");
 
-//     const savedMovie = await reviewToAdd.save();
-
-//     res.status(200).json(savedMovie);
-//     console.log("movie saved successfully");
-//   } catch (err) {
-//     res.json({ message: err });
-//     console.log(err);
-//   }
-// });
+    res.status(200).json(updatedMovie);
+    console.log("movie saved successfully");
+  } catch (err) {
+    res.json({ message: err });
+    console.log(err);
+  }
+});
 
 module.exports = router;

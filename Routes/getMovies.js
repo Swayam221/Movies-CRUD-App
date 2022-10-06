@@ -7,7 +7,7 @@ const Movie = require("../Models/Movies");
 
 router.get("/", async (req, res) => {
   try {
-    let result = await Movie.find();
+    const result = await Movie.find();
     res.status(200).json(result);
   } catch (err) {
     res.json({ message: err.message });
@@ -17,8 +17,10 @@ router.get("/", async (req, res) => {
 
 router.get("/byName/:movieToSearch", async (req, res) => {
   try {
-    let movieToSearch = req.params.movieToSearch;
-    let result = await Movie.findOne({ movieName: movieToSearch });
+    const movieToSearch = req.params.movieToSearch;
+    const result = await Movie.findOne({ movieName: movieToSearch }).populate(
+      "reviews"
+    );
     if (!result) throw new Error("No Movie found");
 
     res.status(200).json(result);
