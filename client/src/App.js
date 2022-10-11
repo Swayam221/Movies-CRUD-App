@@ -4,10 +4,12 @@ import Home from "./screens/Home/Home";
 import List from "./screens/List/List";
 import About from "./screens/About/About";
 import User from "./screens/User/User";
+import Navbar from "./utilities/navbar/Navbar";
 
 function App() {
   return (
     <BrowserRouter>
+      <Navbar />
       <Routes>
         <Route path="home" element={<Home />} />
         <Route path="about">
@@ -16,7 +18,7 @@ function App() {
           <Route path="user" element={<User />} />
         </Route>
 
-        <Route path="*" element={<div>Error</div>} />
+        <Route path="*" element={<Home />} />
       </Routes>
     </BrowserRouter>
   );
