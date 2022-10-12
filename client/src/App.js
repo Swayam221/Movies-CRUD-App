@@ -12,12 +12,8 @@ function App() {
       <Navbar />
       <Routes>
         <Route path="home" element={<Home />} />
-        <Route path="about">
-          <Route index={true} element={<About />} />
-          <Route path="list" element={<List />} />
-          <Route path="user" element={<User />} />
-        </Route>
-
+        <Route path="about" element={<About />} />
+        <Route path="list" element={<List />} />
         <Route path="*" element={<Home />} />
       </Routes>
     </BrowserRouter>

@@ -3,40 +3,28 @@ import Carousel from "react-bootstrap/Carousel";
 
 function MoviesCarousel() {
   return (
-    <Carousel>
+    <Carousel style={{ width: "80%", height: "700px", margin: "auto" }}>
       <Carousel.Item interval={1000}>
         <img
           className="d-block w-100"
-          src="https://st3.depositphotos.com/1064045/15061/i/600/depositphotos_150614902-stock-photo-unusual-cinema-concept-3d-illustration.jpg"
-          alt="First slide"
+          src="https://cps-static.rovicorp.com/2/Open/Turner%20Classic%20Movies/The%20Treasure%20of%20the%20Sierra%20Madre/_derived_jpg_q90_500x500_m0/TreasureOfTheSierraMadre_PosterArt1.jpg"
+          alt="The Treasure of the Sierra Madre"
+          height="700"
+          // width="100"
         />
         <Carousel.Caption>
-          <h3>First slide label</h3>
-          <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+          <h3>The Treasure of the Sierra Madre</h3>
         </Carousel.Caption>
       </Carousel.Item>
-      <Carousel.Item interval={500}>
+      <Carousel.Item interval={1000}>
         <img
           className="d-block w-100"
-          src="https://st3.depositphotos.com/1064045/15061/i/600/depositphotos_150614902-stock-photo-unusual-cinema-concept-3d-illustration.jpg"
-          alt="Second slide"
+          src="https://cps-static.rovicorp.com/2/Open/CinemaSource/Indiana%20Jones%20and%20The%20Raiders%20of%20the%20Lost%20Ark%20%20The%20IMAX%20Experience/_derived_jpg_q90_600x800_m0/140449R1_CR.jpg"
+          alt="Raiders of the Lost Ark"
+          height={700}
         />
         <Carousel.Caption>
-          <h3>Second slide label</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-        </Carousel.Caption>
-      </Carousel.Item>
-      <Carousel.Item>
-        <img
-          className="d-block w-100"
-          src="https://st3.depositphotos.com/1064045/15061/i/600/depositphotos_150614902-stock-photo-unusual-cinema-concept-3d-illustration.jpg"
-          alt="Third slide"
-        />
-        <Carousel.Caption>
-          <h3>Third slide label</h3>
-          <p>
-            Praesent commodo cursus magna, vel scelerisque nisl consectetur.
-          </p>
+          <h3>Raiders of the Lost Ark</h3>
         </Carousel.Caption>
       </Carousel.Item>
     </Carousel>
