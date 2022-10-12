@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
@@ -8,20 +8,26 @@ import MovieCard from "../../utilities/MovieCard/MovieCard";
 import { GET_ALL_MOVIES } from "../../utilities/BackendLink";
 
 function List() {
-  // useEffect(() => {
-  //   fetch(GET_ALL_MOVIES)
-  //     .then((res) => res.json())
-  //     .then((data) => {
-  //       console.log(data);
-  //     });
-  // }, []);
+  const [moviesList, setMoviesList] = useState([]);
+  useEffect(() => {
+    const fetchData = async () => {
+      const result = await fetch(GET_ALL_MOVIES).then((res) => res.json());
+      setMoviesList(result);
+    };
+    fetchData();
+  }, []);
 
   return (
     <Container>
-      <Row lg={4} md={3} sm={2} xs={1}>
-        <Col>
+      {/* <Row lg={4} md={3} sm={2} xs={1}> */}
+      <Row lg={"auto"} md={"auto"} sm={"auto"} xs={"auto"}>
+        {moviesList.map((movie, index) => {
+          // console.log(movie);
+          return <MovieCard data={movie} key={movie._id} />;
+        })}
+        {/* <Col>
           <MovieCard />
-        </Col>
+        </Col> */}
         {/* <Col>2</Col>
         <Col>3</Col>
         <Col>4</Col>

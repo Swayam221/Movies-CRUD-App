@@ -22,6 +22,9 @@ function NavbarMain() {
             <Nav.Link as={Link} to="/list">
               List
             </Nav.Link>
+            <Nav.Link as={Link} to="/add">
+              Add Movie
+            </Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Container>

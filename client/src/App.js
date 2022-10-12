@@ -5,6 +5,8 @@ import List from "./screens/List/List";
 import About from "./screens/About/About";
 import User from "./screens/User/User";
 import Navbar from "./utilities/navbar/Navbar";
+import AddMovies from "./screens/AddMovie/AddMovie";
+import MoviePage from "./screens/MoviePage/MoviePage";
 
 function App() {
   return (
@@ -13,7 +15,11 @@ function App() {
       <Routes>
         <Route path="home" element={<Home />} />
         <Route path="about" element={<About />} />
-        <Route path="list" element={<List />} />
+        <Route path="list">
+          <Route index={true} element={<List />} />
+          <Route path=":movieName" element={<MoviePage />} />
+        </Route>
+        <Route path="add" element={<AddMovies />} />
         <Route path="*" element={<Home />} />
       </Routes>
     </BrowserRouter>
