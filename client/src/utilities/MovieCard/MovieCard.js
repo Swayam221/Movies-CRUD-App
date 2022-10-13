@@ -1,11 +1,10 @@
 import React from "react";
 import Card from "react-bootstrap/Card";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 function MovieCard(data) {
   const navigate = useNavigate();
   return (
-    // <Link to={`${data.data.movieName}`}>
     <Card
       onClick={() => {
         navigate(`${data.data.movieName}`, { replace: true }, [navigate]);
@@ -24,10 +23,8 @@ function MovieCard(data) {
         <Card.Title>{data.data.movieName}</Card.Title>
         <Card.Text
           style={{
-            // whiteSpace: "nowrap",
             overflow: "hidden",
             textOverflow: "....",
-            // width: "100px",
             height: "70px",
           }}
         >
@@ -35,7 +32,6 @@ function MovieCard(data) {
         </Card.Text>
       </Card.Body>
     </Card>
-    // </Link>
   );
 }
 

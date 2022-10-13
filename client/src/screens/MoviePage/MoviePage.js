@@ -27,7 +27,7 @@ function MoviePage() {
       } else {
         setMovieFound(true);
         setMovieData(result._doc);
-        console.log(result._doc);
+        // console.log(result._doc);
       }
     };
 
@@ -61,13 +61,14 @@ function MoviePage() {
 
     if (!result.isError) {
       setMovieData(result._doc);
+      setReviewData("");
     }
   };
 
   return (
     <div style={{ margin: "auto" }}>
-      <Card style={{ width: "35rem" }}>
-        {/* <Card.Img variant="top" src={movieData.poster} /> */}
+      <Card style={{ width: "35rem", margin: "auto" }}>
+        <Card.Img variant="top" src={movieData.poster} />
         <Card.Body>
           <Card.Title>{movieData.movieName}</Card.Title>
           <Card.Text>
@@ -88,10 +89,9 @@ function MoviePage() {
               {readMore ? " ... read less" : " ...read more"}
             </span>
           </Card.Text>
-          <Button variant="primary">Go somewhere</Button>
         </Card.Body>
         <Card.Body>
-          <Card.Text>Reviews</Card.Text>
+          <Card.Text style={{ fontSize: "x-large" }}>Reviews</Card.Text>
           {movieData.reviews.map((reviewData) => {
             return (
               <div key={reviewData._id}>
@@ -99,8 +99,8 @@ function MoviePage() {
               </div>
             );
           })}
-
-          <Form>
+          <hr />
+          <Form style={{ marginTop: "10px" }}>
             <Form.Group className="mb-3" controlId="formBasicEmail">
               <Form.Control
                 type="text"

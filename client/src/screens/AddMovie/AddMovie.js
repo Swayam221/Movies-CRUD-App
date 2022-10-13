@@ -62,7 +62,7 @@ function AddMovies() {
       setResult("Movie added successfully");
     }
 
-    console.log(result);
+    // console.log(result);
   }, [movieName, category, poster, movieDescription]);
 
   return (

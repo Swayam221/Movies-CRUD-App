@@ -9,9 +9,9 @@ function SingleReview(data) {
     time.toLocaleTimeString().slice(0, 5) +
     time.toLocaleTimeString().slice(8, 11);
   return (
-    <div>
+    <div style={{ marginTop: "5px" }}>
       <div>
-        <span>
+        <span style={{ fontSize: "small" }}>
           {timeToDisplay} <Stars number={data.data.rating} />
         </span>
       </div>
