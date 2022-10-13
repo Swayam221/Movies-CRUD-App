@@ -29,10 +29,10 @@ router.put("/", async (req, res) => {
       { new: true }
     ).populate("reviews");
 
-    res.status(200).json(updatedMovie);
+    res.status(200).json({ ...updatedMovie, isError: false });
     console.log("movie saved successfully");
   } catch (err) {
-    res.json({ message: err });
+    res.json({ message: err, isError: true });
     console.log(err);
   }
 });
