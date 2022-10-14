@@ -6,7 +6,7 @@ const Movie = require("../Models/Movies");
 // POST REQUEST
 
 router.post("/", async (req, res) => {
-  console.log(req.body);
+  // console.log(req.body);
   try {
     const movieToAdd = new Movie({
       movieName: req.body.movieName,
@@ -16,10 +16,10 @@ router.post("/", async (req, res) => {
     });
 
     const savedMovie = await movieToAdd.save();
-    res.status(200).json(savedMovie);
+    res.status(200).json({ ...savedMovie, isError: false });
     console.log("movie saved successfully");
   } catch (err) {
-    res.json({ message: err.message });
+    res.json({ message: err.message, isError: true });
     console.log(err);
   }
 });

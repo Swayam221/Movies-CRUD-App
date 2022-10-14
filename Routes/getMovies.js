@@ -22,11 +22,12 @@ router.get("/byName/:movieToSearch", async (req, res) => {
       "reviews"
     );
     if (!result) throw new Error("No Movie found");
+    // console.log(result);
 
-    res.status(200).json(result);
+    res.status(200).json({ ...result, isError: false });
   } catch (err) {
-    res.status(400).json({ message: err.message });
-    console.log(err);
+    res.status(400).json({ message: err.message, isError: true });
+    // console.log(err);
   }
 });
 
